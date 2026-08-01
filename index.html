@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Roshni ke liye ✨</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,500&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#171330;
+    --violet:#241d47;
+    --violet-2:#2c2456;
+    --marigold:#ffb347;
+    --flame:#ff6b35;
+    --cream:#fff6e5;
+    --lilac:#c9b8ff;
+    --lilac-dim: rgba(201,184,255,0.55);
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:
+      radial-gradient(ellipse at 20% 0%, #35296b 0%, transparent 55%),
+      radial-gradient(ellipse at 85% 15%, #2c2456 0%, transparent 50%),
+      var(--ink);
+    color:var(--cream);
+    font-family:'Poppins', sans-serif;
+    min-height:100vh;
+    overflow-x:hidden;
+    position:relative;
+  }
+  .stars{position:fixed; inset:0; pointer-events:none; z-index:0;}
+  .stars span{
+    position:absolute; width:2px; height:2px; background:var(--cream);
+    border-radius:50%; opacity:.5; animation: twinkle 3s ease-in-out infinite;
+  }
+  @keyframes twinkle{ 0%,100%{opacity:.15;} 50%{opacity:.9;} }
+
+  section{
+    min-height:100vh; width:100%;
+    display:flex; align-items:center; justify-content:center;
+    position:relative; z-index:1;
+    padding:40px 20px;
+  }
+
+  h1,h2,h3{font-family:'Fraunces', serif; font-weight:600; margin:0;}
+  .eyebrow{
+    font-family:'Poppins',sans-serif; letter-spacing:.35em; text-transform:uppercase;
+    font-size:.7rem; color:var(--lilac); opacity:.85; margin-bottom:14px;
+  }
+
+  /* ---------- DIYA (signature element) ---------- */
+  .diya{ width:120px; height:auto; margin:0 auto 22px; display:block; }
+  .diya .flame{ transform-origin:60px 46px; animation: flicker 2.4s ease-in-out infinite; }
+  @keyframes flicker{
+    0%,100%{ transform:scale(1) rotate(-1deg); opacity:1; }
+    30%{ transform:scale(1.08,1.15) rotate(1.5deg); opacity:.92; }
+    60%{ transform:scale(0.95,1.05) rotate(-2deg); opacity:1; }
+  }
+  .diya .glow{ animation: glowpulse 2.4s ease-in-out infinite; }
+  @keyframes glowpulse{ 0%,100%{ opacity:.35; } 50%{ opacity:.75; } }
+
+  /* ---------- LOGIN ---------- */
+  #login .card{
+    text-align:center; max-width:420px; width:100%;
+  }
+  #login p.sub{ color:var(--lilac-dim); font-size:.95rem; margin:10px 0 30px; line-height:1.6; }
+  input#nameInput{
+    width:100%; padding:16px 20px; border-radius:14px; border:1px solid rgba(201,184,255,.3);
+    background:rgba(255,255,255,0.04); color:var(--cream); font-family:'Poppins'; font-size:1rem;
+    outline:none; text-align:center; letter-spacing:.02em;
+  }
+  input#nameInput:focus{ border-color:var(--marigold); box-shadow:0 0 0 4px rgba(255,179,71,.12); }
+  input#nameInput::placeholder{ color:rgba(255,246,229,.35); }
+  .btn{
+    margin-top:22px; padding:14px 36px; border-radius:100px; border:none; cursor:pointer;
+    background:linear-gradient(135deg, var(--marigold), var(--flame));
+    color:var(--ink); font-family:'Poppins'; font-weight:600; font-size:.95rem;
+    box-shadow:0 8px 24px rgba(255,107,53,.25); transition:transform .2s ease, box-shadow .2s ease;
+  }
+  .btn:hover{ transform:translateY(-2px); box-shadow:0 12px 30px rgba(255,107,53,.35); }
+  .btn:active{ transform:translateY(0); }
+  #loginError{ min-height:22px; margin-top:14px; font-size:.85rem; color:var(--marigold); opacity:0; transition:opacity .2s; }
+  .shake{ animation: shake .4s; }
+  @keyframes shake{ 0%,100%{transform:translateX(0);} 20%{transform:translateX(-8px);} 40%{transform:translateX(8px);} 60%{transform:translateX(-6px);} 80%{transform:translateX(6px);} }
+
+  /* ---------- HERO ---------- */
+  #hero .wrap{ text-align:center; max-width:640px; }
+  #hero .eyebrow{ opacity:0; animation: rise .8s ease forwards .2s; }
+  #hero h1{ font-size:clamp(2rem, 6vw, 3.4rem); line-height:1.15; opacity:0; animation: rise .9s ease forwards .4s; }
+  #hero h1 em{ font-style:italic; color:var(--marigold); }
+  #hero p{ color:var(--lilac-dim); font-size:1.05rem; margin-top:20px; line-height:1.8; opacity:0; animation: rise .9s ease forwards .7s; }
+  #hero .scrolldown{ margin-top:50px; opacity:0; animation: rise .9s ease forwards 1.1s; color:var(--lilac); font-size:.8rem; letter-spacing:.2em; text-transform:uppercase; }
+  @keyframes rise{ from{ opacity:0; transform:translateY(18px);} to{opacity:1; transform:translateY(0);} }
+
+  /* ---------- PROPOSAL ---------- */
+  #proposal{ position:relative; }
+  #proposal .wrap{ text-align:center; max-width:560px; width:100%; }
+  #proposal h2{ font-size:clamp(1.6rem, 5vw, 2.4rem); margin-bottom:14px; }
+  #proposal p.msg{ color:var(--lilac-dim); font-size:1rem; margin-bottom:40px; line-height:1.7; }
+  .choices{ position:relative; display:flex; gap:24px; justify-content:center; align-items:center; flex-wrap:wrap; min-height:70px; }
+  #yesBtn{ font-size:1.05rem; padding:16px 44px; }
+  #yesBtn.grow{ transform:scale(1.15); }
+  #noBtn{
+    padding:14px 34px; border-radius:100px; border:1px solid var(--lilac-dim);
+    background:transparent; color:var(--lilac); font-family:'Poppins'; font-weight:500;
+    cursor:pointer; position:relative; transition: left .25s ease, top .25s ease;
+  }
+  #noBtn.runaway{ position:fixed; z-index:50; }
+  #noText{ margin-top:22px; min-height:28px; color:var(--marigold); font-size:.9rem; font-weight:500; }
+
+  /* ---------- CELEBRATION ---------- */
+  #celebrate{ display:none; }
+  #celebrate .wrap{ text-align:center; max-width:600px; }
+  #celebrate h2{ font-size:clamp(1.8rem,5vw,2.8rem); color:var(--marigold); }
+  #celebrate p{ color:var(--lilac-dim); margin-top:16px; font-size:1.05rem; line-height:1.8; }
+  .confetti{ position:fixed; inset:0; pointer-events:none; z-index:40; }
+  .confetti span{ position:absolute; top:-20px; font-size:1.4rem; animation: fall linear forwards; }
+  @keyframes fall{ to{ transform:translateY(110vh) rotate(360deg); opacity:.2; } }
+
+  /* ---------- MEMORIES ---------- */
+  #memories{ align-items:flex-start; padding-top:90px; }
+  #memories .wrap{ max-width:900px; width:100%; text-align:center; }
+  #memories h2{ font-size:clamp(1.6rem,5vw,2.4rem); margin-bottom:8px; }
+  #memories .eyebrow{ margin-bottom:0; }
+  #memories p.lead{ color:var(--lilac-dim); margin:16px 0 50px; }
+  .timeline{ position:relative; text-align:left; }
+  .timeline::before{
+    content:''; position:absolute; left:20px; top:6px; bottom:6px; width:1px;
+    background:linear-gradient(var(--lilac-dim), transparent);
+  }
+  .t-item{ position:relative; padding-left:56px; margin-bottom:44px; }
+  .t-item::before{
+    content:''; position:absolute; left:12px; top:4px; width:16px; height:16px; border-radius:50%;
+    background:var(--marigold); box-shadow:0 0 0 5px rgba(255,179,71,.15);
+  }
+  .t-year{ font-family:'Fraunces',serif; color:var(--marigold); font-size:1rem; letter-spacing:.05em; }
+  .t-card{
+    margin-top:8px; background:rgba(255,255,255,.03); border:1px solid rgba(201,184,255,.15);
+    border-radius:16px; padding:22px 24px;
+  }
+  .t-card h3{ font-size:1.15rem; font-weight:600; color:var(--cream); margin-bottom:6px; }
+  .t-card p{ color:var(--lilac-dim); font-size:.92rem; line-height:1.7; margin:0; }
+  .media-slot{
+    margin-top:14px; height:120px; border-radius:12px;
+    border:1px dashed rgba(201,184,255,.35);
+    display:flex; align-items:center; justify-content:center;
+    color:rgba(201,184,255,.5); font-size:.8rem; text-align:center; gap:6px;
+  }
+  .photo-grid{
+    margin-top:16px; display:grid; grid-template-columns:repeat(auto-fit, minmax(110px,1fr));
+    gap:10px;
+  }
+  .photo-grid img{
+    width:100%; height:150px; object-fit:cover; border-radius:12px;
+    border:1px solid rgba(201,184,255,.2); cursor:pointer;
+    transition:transform .25s ease, box-shadow .25s ease;
+  }
+  .photo-grid img:hover{ transform:scale(1.03) rotate(-0.5deg); box-shadow:0 10px 24px rgba(0,0,0,.35); }
+
+  /* video gallery section */
+  #videos .wrap{ max-width:900px; width:100%; text-align:center; }
+  #videos h2{ font-size:clamp(1.6rem,5vw,2.4rem); margin-bottom:8px; }
+  #videos p.lead{ color:var(--lilac-dim); margin:16px 0 40px; }
+  .video-grid{
+    display:grid; grid-template-columns:repeat(auto-fit, minmax(220px,1fr));
+    gap:20px;
+  }
+  .video-grid video{
+    width:100%; border-radius:16px; border:1px solid rgba(201,184,255,.2);
+    background:#000; display:block;
+  }
+
+  /* lightbox */
+  #lightbox{
+    display:none; position:fixed; inset:0; z-index:80; background:rgba(10,8,24,.92);
+    align-items:center; justify-content:center; padding:30px; cursor:zoom-out;
+  }
+  #lightbox img{ max-width:92vw; max-height:88vh; border-radius:14px; box-shadow:0 20px 60px rgba(0,0,0,.5); }
+
+  /* ---------- FINAL NOTE ---------- */
+  #final .wrap{ max-width:560px; text-align:center; }
+  #final .signature{ font-family:'Fraunces',serif; font-style:italic; color:var(--marigold); font-size:1.4rem; margin-top:30px; }
+  #final p{ color:var(--lilac-dim); font-size:1.02rem; line-height:1.85; }
+  #final .heart{ margin-top:36px; font-size:1.6rem; }
+
+  ::selection{ background:var(--marigold); color:var(--ink); }
+
+  /* ---------- MUSIC PLAYER ---------- */
+  #musicToggle{
+    position:fixed; bottom:22px; right:22px; z-index:60;
+    width:52px; height:52px; border-radius:50%; border:1px solid rgba(201,184,255,.35);
+    background:rgba(23,19,48,.7); backdrop-filter:blur(6px);
+    color:var(--marigold); font-size:1.2rem; cursor:pointer;
+    display:flex; align-items:center; justify-content:center;
+    box-shadow:0 6px 18px rgba(0,0,0,.35); transition:transform .2s ease;
+  }
+  #musicToggle:hover{ transform:scale(1.08); }
+  #musicToggle .bars{ display:flex; gap:2px; align-items:flex-end; height:16px; }
+  #musicToggle .bars span{ width:3px; background:var(--marigold); border-radius:2px; animation: bar 1s ease-in-out infinite; }
+  #musicToggle .bars span:nth-child(2){ animation-delay:.2s; }
+  #musicToggle .bars span:nth-child(3){ animation-delay:.4s; }
+  #musicToggle.paused .bars span{ animation-play-state:paused; height:5px !important; }
+  @keyframes bar{ 0%,100%{ height:5px; } 50%{ height:16px; } }
+</style>
+</head>
+<body>
+
+<audio id="bgMusic" loop preload="none">
+  <source src="song.mp3" type="audio/mpeg">
+</audio>
+<button id="musicToggle" class="paused" onclick="toggleMusic()" title="Music on/off">
+  <div class="bars"><span style="height:5px"></span><span style="height:5px"></span><span style="height:5px"></span></div>
+</button>
+
+<div class="stars" id="stars"></div>
+
+<!-- LOGIN -->
+<section id="login">
+  <div class="card">
+    <svg class="diya" viewBox="0 0 120 90">
+      <ellipse class="glow" cx="60" cy="42" rx="46" ry="30" fill="url(#g1)"/>
+      <path d="M14 46 C14 62, 34 70, 60 70 C86 70, 106 62, 106 46 C106 46, 92 54, 60 54 C28 54, 14 46, 14 46Z" fill="#e8a33d"/>
+      <ellipse cx="60" cy="46" rx="46" ry="9" fill="#ffcf7a"/>
+      <path class="flame" d="M60 12 C52 24, 52 34, 60 40 C68 34, 68 24, 60 12Z" fill="#ff6b35"/>
+      <path class="flame" d="M60 20 C56 27, 56 33, 60 37 C64 33, 64 27, 60 20Z" fill="#ffd166"/>
+      <defs>
+        <radialGradient id="g1" cx="50%" cy="40%" r="60%">
+          <stop offset="0%" stop-color="#ffb347" stop-opacity="0.55"/>
+          <stop offset="100%" stop-color="#ffb347" stop-opacity="0"/>
+        </radialGradient>
+      </defs>
+    </svg>
+    <div class="eyebrow">Sirf ek shaks ke liye</div>
+    <h1 style="font-size:clamp(1.6rem,5vw,2.2rem);">Ye jagah sirf <em>Roshni</em> ke liye hai</h1>
+    <p class="sub">Apna naam likho, andar aane ke liye.</p>
+    <input type="text" id="nameInput" placeholder="Apna naam yahan likho...">
+    <br>
+    <button class="btn" onclick="checkLogin()">Andar aao</button>
+    <div id="loginError"></div>
+  </div>
+</section>
+
+<!-- HERO -->
+<section id="hero" style="display:none;">
+  <div class="wrap">
+    <div class="eyebrow">Happy Friendship Day</div>
+    <h1>Class 2 se leke aaj tak,<br>tu meri sabse <em>lucky</em> wali dost hai.</h1>
+    <p>Bohot log aaye, bohot log gaye — lekin tu wahi ek hai jo kabhi nahi hili. Isliye aaj kuch khaas kehna hai, seedha dil se.</p>
+    <p style="font-style:italic; color:var(--marigold); margin-top:24px; font-family:'Fraunces',serif; font-size:1.05rem;">"Aankhon mein basa loon tujhe, itna apna maan ke."</p>
+    <div class="scrolldown">↓ neeche scroll kar</div>
+  </div>
+</section>
+
+<!-- PROPOSAL -->
+<section id="proposal">
+  <div class="wrap">
+    <div class="eyebrow">Ek chhota sa sawaal</div>
+    <h2>Kya main ye Friendship Day proposal khol sakti hoon?</h2>
+    <p class="msg">(Warning: "No" ka option bhaagne wala hai. Bhaagne do usse, ruk ke sochne ki zaroorat nahi 😌)</p>
+    <div class="choices">
+      <button class="btn" id="yesBtn" onclick="sayYes()">Haan ✨</button>
+      <button id="noBtn" onclick="dodgeNo()" onmouseover="dodgeNo()">Nahi</button>
+    </div>
+    <div id="noText"></div>
+  </div>
+</section>
+
+<!-- CELEBRATION (shown after Yes) -->
+<section id="celebrate">
+  <div class="wrap">
+    <svg class="diya" viewBox="0 0 120 90" style="width:100px;">
+      <ellipse class="glow" cx="60" cy="42" rx="52" ry="34" fill="url(#g2)"/>
+      <path d="M14 46 C14 62, 34 70, 60 70 C86 70, 106 62, 106 46 C106 46, 92 54, 60 54 C28 54, 14 46, 14 46Z" fill="#e8a33d"/>
+      <ellipse cx="60" cy="46" rx="46" ry="9" fill="#ffcf7a"/>
+      <path class="flame" d="M60 10 C50 24, 50 35, 60 42 C70 35, 70 24, 60 10Z" fill="#ff6b35"/>
+      <path class="flame" d="M60 19 C55 27, 55 34, 60 38 C65 34, 65 27, 60 19Z" fill="#ffd166"/>
+      <defs>
+        <radialGradient id="g2" cx="50%" cy="40%" r="60%">
+          <stop offset="0%" stop-color="#ffb347" stop-opacity="0.7"/>
+          <stop offset="100%" stop-color="#ffb347" stop-opacity="0"/>
+        </radialGradient>
+      </defs>
+    </svg>
+    <h2>Pata tha tu haan hi bolegi 🌟</h2>
+    <p>Meri Roshni, tu waqai mera roshan wala hissa hai. Ab neeche scroll kar — humari kuch yaadein sambhal ke rakhi hain tere liye.</p>
+    <div class="scrolldown" style="margin-top:40px; color:var(--lilac); font-size:.8rem; letter-spacing:.2em; text-transform:uppercase;">↓ yaadon ki taraf</div>
+  </div>
+</section>
+
+<!-- MEMORIES -->
+<section id="memories">
+  <div class="wrap">
+    <div class="eyebrow">Hamari Kahani</div>
+    <h2>Class 2 se ab tak</h2>
+    <p class="lead">Har saal ke saath, dosti thodi aur pakki hoti gayi.</p>
+    <div class="timeline">
+      <div class="t-item">
+        <div class="t-year">Class 2</div>
+        <div class="t-card">
+          <h3>Jahan se sab shuru hua</h3>
+          <p>Ek chhoti si classroom, aur do ajnabi jo dost ban gaye — bina pata chale ki ye dosti itni door tak jayegi.</p>
+          <div class="photo-grid">
+            <img src="media/class2-school-photo.jpeg" alt="Class 2 wali photo" onclick="openLightbox(this.src)">
+          </div>
+        </div>
+      </div>
+      <div class="t-item">
+        <div class="t-year">Beech ke saal</div>
+        <div class="t-card">
+          <h3>Log aaye, log gaye</h3>
+          <p>Naye dost bane, purane door hue — lekin tu hamesha wahi rahi, mere saath, bina kisi shart ke.</p>
+          <div class="photo-grid">
+            <img src="media/beech-1.jpeg" alt="Hamari yaadein" onclick="openLightbox(this.src)">
+            <img src="media/beech-2.jpeg" alt="Hamari yaadein" onclick="openLightbox(this.src)">
+            <img src="media/beech-3.jpeg" alt="Hamari yaadein" onclick="openLightbox(this.src)">
+          </div>
+        </div>
+      </div>
+      <div class="t-item">
+        <div class="t-year">Aaj</div>
+        <div class="t-card">
+          <h3>Ab bhi wahi tu</h3>
+          <p>Itne saalon baad bhi, tu meri sabse lucky wali dost hai — mera diamond, jise main kabhi khona nahi chahti.</p>
+          <div class="photo-grid">
+            <img src="media/aaj-1.jpeg" alt="Aaj ki yaadein" onclick="openLightbox(this.src)">
+            <img src="media/aaj-2.jpeg" alt="Aaj ki yaadein" onclick="openLightbox(this.src)">
+            <img src="media/aaj-3.jpeg" alt="Aaj ki yaadein" onclick="openLightbox(this.src)">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEOS -->
+<section id="videos">
+  <div class="wrap">
+    <div class="eyebrow">Chalti Firti Yaadein</div>
+    <h2>Kuch pal, video mein</h2>
+    <p class="lead">Kyunki kuch moments sirf photo mein fit nahi hote.</p>
+    <div class="video-grid">
+      <video controls playsinline preload="metadata"><source src="media/video-1.mp4" type="video/mp4"></video>
+      <video controls playsinline preload="metadata"><source src="media/video-2.mp4" type="video/mp4"></video>
+      <video controls playsinline preload="metadata"><source src="media/video-3.mp4" type="video/mp4"></video>
+      <video controls playsinline preload="metadata"><source src="media/video-4.mp4" type="video/mp4"></video>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div id="lightbox" onclick="closeLightbox()">
+  <img id="lightboxImg" src="" alt="">
+</div>
+
+<!-- FINAL NOTE -->
+<section id="final">
+  <div class="wrap">
+    <div class="eyebrow">Happy Friendship Day, Roshni</div>
+    <h2 style="font-size:clamp(1.5rem,4.5vw,2rem);">Tu chahe kahin bhi rahe,<br>meri dost list mein tera number one seat pakka hai.</h2>
+    <p>Thank you class 2 se leke aaj tak mere saath rehne ke liye. Yahi dosti aise hi chalti rahe — bina kisi expiry date ke.</p>
+    <div class="heart">💛🪔💛</div>
+    <div class="signature">— hamesha tumhari</div>
+  </div>
+</section>
+
+<script>
+  // stars background
+  const starsEl = document.getElementById('stars');
+  for(let i=0;i<60;i++){
+    const s = document.createElement('span');
+    s.style.left = Math.random()*100+'vw';
+    s.style.top = Math.random()*100+'vh';
+    s.style.animationDelay = (Math.random()*3)+'s';
+    starsEl.appendChild(s);
+  }
+
+  function checkLogin(){
+    const val = document.getElementById('nameInput').value.trim().toLowerCase();
+    const err = document.getElementById('loginError');
+    if(val === 'roshni'){
+      document.getElementById('login').style.display = 'none';
+      document.getElementById('hero').style.display = 'flex';
+      const music = document.getElementById('bgMusic');
+      music.volume = 0.55;
+      music.play().then(()=>{
+        document.getElementById('musicToggle').classList.remove('paused');
+      }).catch(()=>{ /* autoplay blocked, user can tap the music button */ });
+    } else {
+      err.textContent = "Hmm... ye toh Roshni jaisa nahi laga 👀 phir se try karo";
+      err.style.opacity = 1;
+      const card = document.querySelector('#login .card');
+      card.classList.remove('shake'); void card.offsetWidth; card.classList.add('shake');
+    }
+  }
+  document.getElementById('nameInput').addEventListener('keydown', e=>{ if(e.key==='Enter') checkLogin(); });
+
+  // dodging No button
+  const noBtn = document.getElementById('noBtn');
+  const noText = document.getElementById('noText');
+  const noLines = [
+    "arre nahi na 🙈",
+    "socho phir se...",
+    "pakka nahi? 🤔",
+    "achha chal, aakhri mauka",
+    "nahi milega ye button ab 😤",
+    "chal nikal, piche se aana 😌✨"
+  ];
+  let dodgeCount = 0;
+
+  function dodgeNo(){
+    dodgeCount++;
+    if(dodgeCount === 1){
+      noBtn.classList.add('runaway');
+    }
+    const maxX = window.innerWidth - 140;
+    const maxY = window.innerHeight - 70;
+    const x = Math.max(10, Math.random()*maxX);
+    const y = Math.max(10, Math.random()*maxY);
+    noBtn.style.left = x + 'px';
+    noBtn.style.top = y + 'px';
+    const line = noLines[Math.min(dodgeCount-1, noLines.length-1)];
+    noText.textContent = line;
+    document.getElementById('yesBtn').classList.add('grow');
+  }
+
+  function openLightbox(src){
+    document.getElementById('lightboxImg').src = src;
+    document.getElementById('lightbox').style.display = 'flex';
+  }
+  function closeLightbox(){
+    document.getElementById('lightbox').style.display = 'none';
+  }
+
+  function toggleMusic(){
+    const music = document.getElementById('bgMusic');
+    const btn = document.getElementById('musicToggle');
+    if(music.paused){
+      music.play();
+      btn.classList.remove('paused');
+    } else {
+      music.pause();
+      btn.classList.add('paused');
+    }
+  }
+
+  function sayYes(){
+    document.getElementById('proposal').style.display = 'none';
+    document.getElementById('celebrate').style.display = 'flex';
+    launchConfetti();
+  }
+
+  function launchConfetti(){
+    const wrap = document.createElement('div');
+    wrap.className = 'confetti';
+    document.body.appendChild(wrap);
+    const emojis = ['🪔','✨','💛','🌟','🎉'];
+    for(let i=0;i<40;i++){
+      const s = document.createElement('span');
+      s.textContent = emojis[Math.floor(Math.random()*emojis.length)];
+      s.style.left = Math.random()*100+'vw';
+      s.style.animationDuration = (2.5+Math.random()*2.5)+'s';
+      s.style.animationDelay = (Math.random()*1.5)+'s';
+      wrap.appendChild(s);
+    }
+    setTimeout(()=> wrap.remove(), 6000);
+  }
+</script>
+</body>
+</html>
